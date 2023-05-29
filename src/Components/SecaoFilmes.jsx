@@ -7,7 +7,7 @@ export default function SecaoFilmes(props) {
         <div className="flex flex-wrap">
 
             {filmes.map(filme => <CardFilme filme={filme} />)}
-            
+
         </div>
     )
 }

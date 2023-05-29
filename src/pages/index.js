@@ -32,7 +32,7 @@ const filmes = [
 export default function Home() {
   return (
     <>
-      <Header/>
+      <Header />
 
       <div>
         <img className='h-72 brightness-10 object-cover w-screen' src='https://cdn.discordapp.com/attachments/1026632294041133111/1112817292531748964/4566888.jpg'></img>
