@@ -12,7 +12,7 @@ export default function CardFilme({ filme }) {
         {
           favorito ?
             <FavoriteIcon className='absolute right-3 top-2 cursor-pointer text-red-600' onClick={() => setFavorito(false)} /> :
-            <FavoriteBorderIcon className='absolute right-3 top-2 cursor-pointer text-white' onClick={() => setFavorito(true)} />
+            <FavoriteBorderIcon className='absolute right-3 top-2 cursor-pointer text-rose-600' onClick={() => setFavorito(true)} />
         }
         <img className='rounded-lg' src={filme.poster}></img>
       </div>
