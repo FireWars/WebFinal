@@ -1,35 +1,30 @@
-import CardFilme from '@/Components/CardFilme'
-import Header from '@/Components/Header'
-import SecaoFilmes from '@/Components/SecaoFilmes'
-import Titulo from '@/Components/Titulo'
-import { Inter } from 'next/font/google'
+import CardMusica from '@/Components/CardMusica';
+import Header from '@/Components/Header';
+import SecaoMusicas from '@/Components/SecaoMusicas';
+import Titulo from '@/Components/Titulo';
+import { Inter } from 'next/font/google';
+import { useState, useEffect } from 'react';
 
+const inter = Inter({ subsets: ['latin'] });
 
-
-const inter = Inter({ subsets: ['latin'] })
-const filmes = [
-  {
-    titulo: "MOTOMAMI",
-    nota: "8.9",
-    poster: "https://cdn.discordapp.com/attachments/1026632294041133111/1112825342848139355/4.png"
-  },
-  {
-    titulo: "MR. MORALE & THE BIG STEPPERS",
-    nota: "9.7",
-    poster: "https://cdn.discordapp.com/attachments/1026632294041133111/1112825344022544384/2.png"
-  },
-  {
-    titulo: "RENAISSANCE",
-    nota: "10,0",
-    poster: "https://cdn.discordapp.com/attachments/1026632294041133111/1112826480146260098/Design_sem_nome.png"
-  },
-  {
-    titulo: "MIDNIGHTS",
-    nota: "8.7",
-    poster: "https://cdn.discordapp.com/attachments/1026632294041133111/1112825342483238922/3.png"
-  }
-]
 export default function Home() {
+  const [musicas, setMusicas] = useState([])
+  //console.log(musicas)
+
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': 'ae0e3099c4mshafb361d18631148p19cd5cjsnb394b21bd634',
+      'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
+    }
+  };
+  useEffect(() => {
+    fetch('https://deezerdevs-deezer.p.rapidapi.com/album/302127', options)
+    .then(response => response.json())
+    .then(response => setMusicas(response))
+    .catch(err => console.error(err));
+  }, [])
+ 
   return (
     <>
       <Header />
@@ -43,7 +38,7 @@ export default function Home() {
       >
         <Titulo>Melhores Álbuns de 2022</Titulo>
         <div className='flex'>
-          <SecaoFilmes filmes={filmes} />
+          <SecaoMusicas musicas={musicas} />
         </div>
 
         <Titulo>Musicas em alta</Titulo>
