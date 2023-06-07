@@ -30,15 +30,30 @@ export default function Home() {
  
   return (
     <>
+      
       <Header />
-
-      <div>
-        <img className='h-72 brightness-10 object-cover w-screen' src='https://cdn.discordapp.com/attachments/1026632294041133111/1112817292531748964/4566888.jpg'></img>
+      
+      <div className='relative'>
+        <div>
+          <img className='h-72 brightness-10 object-cover w-screen' src='https://cdn.discordapp.com/attachments/1026632294041133111/1112817292531748964/4566888.jpg' />
+        </div>
       </div>
 
-      <main
-        className={`flex m-5 min-h-screen flex-col justify-between px-24  ${inter.className}`}
-      >
+      <main className={`flex m-5 min-h-screen flex-col justify-between px-24 ${inter.className}`}>
+      <div className='flex w-96 rounded bg-white'>
+        <input
+          className="w-full font-bold bg-transparent px-4 py-1 text-gray-900 outline-none focus:outline-none"
+          type="search"
+          name="search"
+          id="search"
+          placeholder="Search"
+        />
+
+        <button className='m-2 rounded bg-teal-800 px-4 py-4 text-white'>
+          Search
+        </button>
+      </div>
+
         <Titulo>Melhores Álbuns de 2022</Titulo>
         <div className='flex'>
           <SecaoMusicas musicas={musicas} />
@@ -49,8 +64,7 @@ export default function Home() {
         <Titulo>Álbuns em alta</Titulo>
 
         <Titulo>Lançamentos</Titulo>
-
       </main>
     </>
-  )
+  );
 }
