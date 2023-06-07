@@ -73,14 +73,16 @@ export default function Home() {
             Pesquisar
           </button>
         </div>
-        
-        <Titulo >Resultado:</Titulo>
+
+        <div className="m-3">
+          <Titulo >Resultado:</Titulo>
+        </div>
         <div className="flex">
           {musicas && musicas.length ? (
             <SecaoMusicas musicas={musicas} />
           ) : null}
         </div>
- 
+
       </main>
     </>
   );
