@@ -8,8 +8,7 @@ import { useState, useEffect } from 'react';
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
-  const [musicas, setMusicas] = useState([])
-  //console.log(musicas)
+  const [musicas, setMusicas] = useState([]);
 
   const options = {
     method: 'GET',
@@ -18,11 +17,15 @@ export default function Home() {
       'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
     }
   };
+  
   useEffect(() => {
-    fetch('https://deezerdevs-deezer.p.rapidapi.com/album/302127', options)
-    .then(response => response.json())
-    .then(response => setMusicas(response))
-    .catch(err => console.error(err));
+    const fetchMusic = async () => {
+      fetch('https://deezerdevs-deezer.p.rapidapi.com/album/302127', options)
+        .then(response => response.json())
+        .then(data => setMusicas(data))
+        .catch(err => console.error(err));
+    }
+    fetchMusic();
   }, [])
  
   return (
@@ -47,7 +50,7 @@ export default function Home() {
 
         <Titulo>Lançamentos</Titulo>
 
-      </main>//JSX
+      </main>
     </>
   )
 }
